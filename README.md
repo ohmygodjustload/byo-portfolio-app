@@ -90,3 +90,13 @@ Colors and fonts are managed via CSS custom properties. Edit them in:
 ## Deployment
 
 Push to GitHub and connect to [Vercel](https://vercel.com). Add the environment variables in the Vercel dashboard.
+
+### Content revalidation
+
+**Currently:** A Sanity webhook triggers a full Vercel rebuild on every publish. Content changes go live within ~60 seconds.
+
+Setup:
+1. Vercel → Project Settings → Git → Deploy Hooks → create a hook URL
+2. Sanity → Project → API → Webhooks → add the hook URL, trigger on "publish"
+
+**Planned (future):** Replace the full rebuild with on-demand revalidation via a Next.js API route (`app/api/revalidate/route.ts`) that calls `revalidatePath()` when Sanity publishes a change. This will cut propagation time from ~60s to ~1s. See [Next.js revalidatePath docs](https://nextjs.org/docs/app/api-reference/functions/revalidatePath) and [Sanity webhooks docs](https://www.sanity.io/docs/webhooks).
