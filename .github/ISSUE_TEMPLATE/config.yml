@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Sanity docs
+    url: https://www.sanity.io/docs
+    about: Schema reference, GROQ queries, webhooks
+  - name: Next.js 16 docs
+    url: https://nextjs.org/docs
+    about: App Router, Server Components, API routes
+  - name: Tailwind CSS v4 docs
+    url: https://tailwindcss.com/docs
+    about: Utility classes, theme configuration
